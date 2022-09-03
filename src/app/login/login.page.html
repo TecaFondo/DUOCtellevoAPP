@@ -15,7 +15,7 @@
     <div class="content">
         <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
             <ion-label>Nombre de Usuario</ion-label>
-            <ion-input class="lin" type="text" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="6" required></ion-input>
+            <ion-input class="lin" type="text" ng-pattern="/.*\@duocuc.cl$/" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="32" required></ion-input>
             <br>
             <ion-label>Contraseña</ion-label>
             <ion-input class="lin" ng-pattern="/^([0-9])$/" type="password" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,''),alert('Ingresar solo Números')" placeholder=" ****** " id="UserLog " name="password " [(ngModel)]="usuario.password "
