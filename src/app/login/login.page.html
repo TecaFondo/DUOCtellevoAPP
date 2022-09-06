@@ -1,36 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="contenido">
-    <img class="logoLog" src="../assets/images/logo.png"/>
-    <h5 class="h">Comienza tu viaje!</h5>
-    <br>
-    <br>
-    <h3 class="h"><br></h3>
-    <br>
-    <div class="content">
-        <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
-            <ion-label>Nombre de Usuario</ion-label>
-            <ion-input class="lin" type="text" ng-pattern="/.*\@duocuc.cl$/" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="32" required></ion-input>
-            <br>
-            <ion-label>Contraseña</ion-label>
-            <ion-input class="lin" ng-pattern="/^([0-9])$/" type="password" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,''),alert('Ingresar solo Números')" placeholder=" ****** " id="UserLog " name="password " [(ngModel)]="usuario.password "
-                minlength="4 " maxlength="4 " required></ion-input>
-            <br>
-            <div id="b ">
-                <ion-button id="b " expand="full " type="submit " color="light " [disabled]="formulario.invalid">Ingresar</ion-button>
-            </div>
-        </form>
+    <div class="contenido">
+        <img class="logoLog" src="../assets/images/logo.png" />
+        <h5 class="h">Comienza tu viaje!</h5>
+        <br>
+        <br>
+        <h3 class="h"><br></h3>
+        <br>
+        <div class="content">
+            <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+                <ion-label>Nombre de Usuario</ion-label>
+                <ion-input class="lin" type="text" ng-pattern="/.*\@duocuc.cl$/" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="32" required></ion-input>
+                <br>
+                <ion-label>Contraseña</ion-label>
+                <ion-input class="lin" ng-pattern="/^([0-9])$/" type="password" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,''),alert('Ingresar solo Números')" placeholder=" ****** " id="UserLog " name="password " [(ngModel)]="usuario.password "
+                    minlength="4 " maxlength="4 " required></ion-input>
+                <br>
+                <div id="b ">
+                    <ion-button id="b " expand="full " type="submit " color="light " [routerLink]="['/home']" [queryParams]="{property:usuario.nombre}" [disabled]="formulario.invalid">Ingresar</ion-button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="u">
+            <a href="/restablecer ">Olvidaste tu contraseña? <br>Restablece aquí</a>
+        </div>
     </div>
-    <br>
-    <br>
-    <div id="u">
-        <a href="/restablecer ">Olvidaste tu contraseña? <br>Restablece aquí</a>
-    </div>
-  </div>
-    
+
 </ion-content>

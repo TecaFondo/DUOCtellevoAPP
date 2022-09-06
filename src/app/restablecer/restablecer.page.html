@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>restablecer</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>restablecer</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+    <div class="contenido">
+        <img class="logoLog" src="../assets/images/logo.png" />
+        <div class="content">
+            <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+                <ion-label>Nombre de Usuario</ion-label>
+                <ion-input class="lin" type="text" ng-pattern="/.*\@duocuc.cl$/" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="32" required></ion-input>
+                <br>
+                <div id="b ">
+                    <ion-button id="b " expand="full " type="submit " color="light " [routerLink]="['/login']" [disabled]="formulario.invalid">Restablecer</ion-button>
+                </div>
+            </form>
+        </div>
 
+    </div>
 </ion-content>
