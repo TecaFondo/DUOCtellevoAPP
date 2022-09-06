@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { Router } from '@angular/router'; 
 import { Validators, FormControl, FormBuilder,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage {
     nombre:'',
     password:''
   }
-  constructor(public platform: Platform) { //valida tipo dispositivo (android o ios)
+  constructor(private router:Router, public platform: Platform) { //valida tipo dispositivo (android o ios)
     this.ios = platform.is('ios');
     this.android = platform.is('android');
 }
@@ -22,6 +23,7 @@ export class LoginPage {
 onSubmitTemplate(){ //Muestra datos de usuario (si son correctos <cumplen validacion>)
   console.log('Form Submited');
   console.log(this.usuario);
+  this.router.navigate(['home/',this.usuario.nombre]);
 }
 }
 
