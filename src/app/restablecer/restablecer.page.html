@@ -13,7 +13,7 @@
                 <ion-input class="lin" type="text" ng-pattern="/.*\@duocuc.cl$/" placeholder="Ingresa tu usuario" id="UserLog" name="nombre" [(ngModel)]="usuario.nombre" minlength="3" maxlength="32" required></ion-input>
                 <br>
                 <div id="b ">
-                    <ion-button id="b " expand="full " type="submit " color="light " [routerLink]="['/login']" [disabled]="formulario.invalid">Restablecer</ion-button>
+                    <ion-button id="b " expand="full " type="submit " color="danger" [routerLink]="['/login']" [disabled]="formulario.invalid">Restablecer</ion-button>
                 </div>
             </form>
         </div>
