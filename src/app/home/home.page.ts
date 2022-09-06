@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,8 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePage {
 
-  usua: any;
-constructor(private route: ActivatedRoute) {}
+  usuario: any;
+constructor(private route: ActivatedRoute) {
+  this.usuario = this.route.snapshot.paramMap.get('nombre')
+}
 
 
 
