@@ -1,10 +1,10 @@
-
 .content {
     padding-left: 10%;
     padding-right: 10%;
     color: #373737;
 }
-.contenido{
+
+.contenido {
     background-image: url("/assets/images/fondo.png");
     background-position: center center;
     background-repeat: repeat;
@@ -13,22 +13,28 @@
 
 .h {
     text-align: center;
-    color:#373737;
+    color: #373737;
 }
 
 #b {
     text-align: center;
 }
 
-#u {
+.u {
     text-align: center;
-    color: #ff0000df
+    color: #ff0000df;
+    text-decoration: none;
+}
+
+.u:hover {
+    text-decoration: none;
+    color: #ff0000df;
 }
 
 .lin {
     border-bottom: solid 1px #0000003f;
-
 }
-.logoLog{
+
+.logoLog {
     padding-top: 16px;
 }
