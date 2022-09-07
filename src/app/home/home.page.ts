@@ -1,4 +1,8 @@
+
 import { Component, ViewChild } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { createAnimation } from "@ionic/core";
 import { ElementRef } from '@angular/core';
@@ -10,6 +14,7 @@ import { ElementRef } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
   @ViewChild("Logo") Logo:ElementRef;
 
@@ -36,6 +41,7 @@ ngAfterViewInit(){
   ]);
 
 animation.play();
+
 }
 
 
