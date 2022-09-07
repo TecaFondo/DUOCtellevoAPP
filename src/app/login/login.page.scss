@@ -9,11 +9,13 @@
     background-position: center center;
     background-repeat: repeat;
     background-size: cover;
+    height: 100%;
 }
 
 .h {
     text-align: center;
     color: #373737;
+    font-weight: bold;
 }
 
 #b {
@@ -22,12 +24,6 @@
 
 .u {
     text-align: center;
-    color: #ff0000df;
-    text-decoration: none;
-}
-
-.u:hover {
-    text-decoration: none;
     color: #ff0000df;
 }
 
