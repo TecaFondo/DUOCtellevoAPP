@@ -13,18 +13,12 @@ import { ElementRef } from '@angular/core';
 })
 
 export class HomePage {
-  @ViewChild("Logo") Logo:ElementRef;
-
-
-
-  usuario: any;
-  
+  @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
+  usuario: any; 
 constructor(private route: ActivatedRoute) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
-  
 }
-
-ngAfterViewInit(){
+ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
   
   const animation = createAnimation()
   .addElement(this.Logo.nativeElement)
@@ -40,7 +34,5 @@ ngAfterViewInit(){
 animation.play();
 
 }
-
-
 
 }
