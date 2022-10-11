@@ -19,6 +19,14 @@
         <ion-card class="cartas"><img class="logoLog" src="../assets/images/logo.png" />
             <h3 class="comenzar">Comenzar viaje</h3>
         </ion-card>
+
+       
     </div>
+     <!-- PASO 13 -->
+        <!-- Creamos la llamada a los datos -->
+        <div class="post" *ngFor="let post of arrayPosts">
+            <h2>{{post.title}}</h2> <!-- reemplazar title por name si es "users"-->
+            <p>{{post.body}}</p> <!-- reemplazar body por email-->
+        </div>
 
 </ion-content>

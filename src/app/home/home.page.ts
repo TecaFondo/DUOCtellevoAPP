@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { createAnimation } from "@ionic/core";
 import { ElementRef } from '@angular/core';
 
-
+import { PostServiceService } from '../post-service/services.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { ElementRef } from '@angular/core';
 export class HomePage {
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
-constructor(private route: ActivatedRoute) {
+constructor(private route: ActivatedRoute, public postServices:PostServiceService) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
 }
 ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
@@ -34,5 +34,36 @@ ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
 animation.play();
 
 }
+
+  //PASO 9 
+  //Creo arreglo que almacenará la información
+  arrayPosts : any;
+
+
+  //PASO 11 
+  //Al entrar a la página llamo al método que CREARÉ para obtener la infor
+  ionViewWillEnter(){
+    this.getPosts();
+  }
+
+  //PASO 12 
+  //Creo el método para consumir el servicio
+  //Se reemplaza con NUEVO 2.3 si se utiliza Observable
+  getPosts(){
+    this.postServices.getPosts()
+    .then(data =>{
+      this.arrayPosts = data;
+    });
+  }  
+
+  //NUEVO Paso 2.3 Uso de Observable
+  /*
+  getPosts(){
+    this.postServices.getPosts().subscribe((data)=>{
+      this.arrayPosts=data;
+      this.arrayPosts.reverse();
+    })
+  }
+  */
 
 }
