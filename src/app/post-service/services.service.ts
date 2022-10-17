@@ -18,8 +18,8 @@ export class PostServiceService {
   
   //NUEVO PASO 2.5
   //Para montar servidor local
-  url = 'http://192.168.86.31:3000/users'; //se tiene que colocar la IP de donde provienen los datos (puede ser una de gihub si fuerna necesario <como el año pasasdo>)
-
+  url = 'http://192.168.1.93:3000/users'; //se tiene que colocar la IP de donde provienen los datos (puede ser una de gihub si fuerna necesario <como el año pasasdo>)
+  id= 0;
   //NUEVO PASO 3.2
   httpOptions = {
     headers: new HttpHeaders
@@ -49,6 +49,17 @@ export class PostServiceService {
   }
   createPost(post): Observable<any>{
     return this.http.post(this.url ,post ,this.httpOptions).pipe(retry(3));
+  }
+
+  updatePost(id,post):Observable<any>{
+    return this.http.put(this.url+"/"+id,post,this.httpOptions).pipe(retry(3));
+  }
+
+  deletePost(id,post):Observable<any>{
+      return this.http.delete(this.url+"/"+id,post)
+      .pipe(
+        retry(1-2)
+      );
   }
   //NUEVO PASO 2.2 Uso de Observable
   /*

@@ -13,6 +13,13 @@ import { PostServiceService } from '../post-service/services.service';
 })
 
 export class HomePage {
+
+  post:any={
+    id:null,
+    name:null,
+    username:"",
+    email:"",
+  };
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
 constructor(private route: ActivatedRoute, public postServices:PostServiceService) {
@@ -49,6 +56,8 @@ animation.play();
   //PASO 12 
   //Creo el método para consumir el servicio
   //Se reemplaza con NUEVO 2.3 si se utiliza Observable
+
+  //funciones simplemente llaman a funciones en post-service y muestran salida por consola con finalidad de debug.
   getPosts(){
     this.postServices.getPosts()
     .then(data =>{
@@ -56,14 +65,41 @@ animation.play();
     });
   }  
 
-  //NUEVO Paso 2.3 Uso de Observable
-  /*
-  getPosts(){
-    this.postServices.getPosts().subscribe((data)=>{
-      this.arrayPosts=data;
-      this.arrayPosts.reverse();
-    })
+  createPost(){
+    this.postServices.createPost(this.post).subscribe(
+      ()=>{
+        console.log("Post creado.");
+        this.getPosts();
+      },
+      error=>{
+        console.log("Error " + error)
+      }
+    );
   }
-  */
+  updatePost(){
+    this.postServices.updatePost("1",this.post).subscribe( //se entrega id apra realizar el update de los datos.
+      ()=>{
+        console.log("Post actualizado.");
+        this.getPosts();
+      },
+      error=>{
+        console.log("Error " + error)
+      }
+    );
+  }
+
+  deletePost(){
+    this.postServices.deletePost("1",this.post).subscribe( //se entrega id para realizar el delete.
+      ()=>{
+        console.log("Post eliminado.");
+        this.getPosts();
+      },
+      error=>{
+        console.log("Error " + error)
+      }
+    );
+  }
+
+  
 
 }
