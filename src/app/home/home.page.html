@@ -1,26 +1,75 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
+        <ion-buttons>
+            <ion-back-button>Log-out</ion-back-button>
+        </ion-buttons>
         <ion-title>
-            Blank
+            Home
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-    </ion-header>
 
     <div class="contenido">
         <div #Logo><img class="logoLog" src="../assets/images/logo.png" /></div>
-        
+
         <h1 class="titulo">BIENVENID@:</h1>
         <h2 class="nombre">{{usuario}}</h2>
         <ion-card class="cartas"><img class="logoLog" src="../assets/images/logo.png" />
             <h3 class="comenzar">Comenzar viaje</h3>
         </ion-card>
+
+
     </div>
+    <!-- PASO 13 -->
+    <!-- Creamos la llamada a los datos -->
+    <div class="post" *ngFor="let post of arrayPosts">
+        <h2>{{post.username}}</h2>
+        <!-- reemplazar title por name si es "users"-->
+        <p>{{post.email}}</p>
+        <ion-button>Editar</ion-button>
+        <!-- reemplazar body por email-->
+    </div>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Patente:</ion-label>
+            <ion-input [(ngModel)]="Patente"></ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>Marca:</ion-label>
+            <ion-input></ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>Modelo:</ion-label>
+            <ion-input></ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>Color:</ion-label>
+            <ion-input></ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>Hora de salida:</ion-label>
+            <ion-input type="time"></ion-input>
+
+        </ion-item>
+        <ion-item>
+            <ion-label>Destino:</ion-label>
+            <ion-input></ion-input>
+
+        </ion-item>
+    </ion-list>
+
+
+    <ion-button shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
+
+
+
+    <ion-button shape="round" expand="block" (click)="createPost()">Borrar</ion-button>
 
 </ion-content>
