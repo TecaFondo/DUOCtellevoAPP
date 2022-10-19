@@ -16,13 +16,21 @@ export class HomePage {
 
   post:any={
     id:null,
-    name:null,
     username:null,
-    email:"",
+    marca:null,
+    modelo:null,
+    color:null,
+    hora:null,
+    destino:null
   };
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
   Patente: any;
+  Marca: any;
+  Modelo:any;
+  Color:any;
+  Hora:any;
+  Destino:any;
 constructor(private route: ActivatedRoute, public postServices:PostServiceService) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
 }
@@ -102,7 +110,13 @@ animation.play();
   }
 
   onSubmit(JSONForm){
-    this.post.username=this.Patente;
+    this.post.patente=this.Patente;
+    this.post.marca=this.Marca;
+    this.post.modelo=this.Modelo;
+    this.post.color=this.Color;
+    this.post.hora=this.Hora;
+    this.post.destino=this.Destino;
+    console.log(this.Hora);
     this.createPost();
   }
   
