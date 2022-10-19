@@ -25,9 +25,13 @@
     <!-- PASO 13 -->
     <!-- Creamos la llamada a los datos -->
     <div class="post" *ngFor="let post of arrayPosts">
-        <h2>{{post.username}}</h2>
+        <h2>{{post.patente}}</h2>
         <!-- reemplazar title por name si es "users"-->
-        <p>{{post.email}}</p>
+        <p>{{post.marca}}</p>
+        <p>{{post.modelo}}</p>
+        <p>{{post.molor}}</p>
+        <p>{{post.hora}}</p>
+        <p>{{post.destino}}</p>
         <ion-button>Editar</ion-button>
         <!-- reemplazar body por email-->
     </div>
@@ -40,27 +44,27 @@
         </ion-item>
         <ion-item>
             <ion-label>Marca:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Marca"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Modelo:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Modelo"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Color:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Color"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Hora de salida:</ion-label>
-            <ion-input type="time"></ion-input>
+            <ion-input [(ngModel)]="Hora" type="time"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Destino:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Destino"></ion-input>
 
         </ion-item>
     </ion-list>
