@@ -107,13 +107,14 @@ animation.play();
     this.getPost(postID);
       if(this.post.puestos<1){
         this.noPuestos();
+        this.getPosts();
       }
       else{
         this.post.puestos-=1;
         this.postServices.updatePost(postID,this.post).subscribe( //se entrega id apra realizar el update de los datos.
       ()=>{
         console.log("Post actualizado.");
-        this.ionViewWillEnter();
+        this.getPosts();
       },
       error=>{
         console.log("Error " + error)

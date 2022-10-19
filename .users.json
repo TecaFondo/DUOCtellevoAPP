@@ -3,41 +3,35 @@
     {
       "id": 1,
       "username": null,
-      "puestos": 2,
-      "patente": "1234"
+      "marca": "Hyundia",
+      "modelo": "Elantra",
+      "color": "Gris",
+      "hora": "11:11",
+      "destino": "Chuchunco",
+      "puestos": 4,
+      "patente": "BRXH52"
     },
     {
       "id": 2,
       "username": null,
-      "marca": "",
-      "modelo": "",
-      "color": "",
-      "hora": "",
-      "destino": "",
-      "puestos": 2,
-      "patente": "qwert"
+      "marca": "Hyundai",
+      "modelo": "Sonata",
+      "color": "Gris",
+      "hora": "14:50",
+      "destino": "Valparaiso",
+      "puestos": 4,
+      "patente": "BHWZ86"
     },
     {
       "id": 3,
       "username": null,
-      "marca": "",
-      "modelo": "",
-      "color": "",
-      "hora": "",
-      "destino": "",
-      "puestos": 4,
-      "patente": "asdf"
-    },
-    {
-      "id": 4,
-      "username": null,
-      "marca": "",
-      "modelo": "",
-      "color": "",
-      "hora": "",
-      "destino": "",
-      "puestos": 4,
-      "patente": "zxcv"
+      "marca": "Subaru",
+      "modelo": "Legacy",
+      "color": "Champaña",
+      "hora": "15:26",
+      "destino": "Concon",
+      "puestos": 0,
+      "patente": "UF4138"
     }
   ]
 }
