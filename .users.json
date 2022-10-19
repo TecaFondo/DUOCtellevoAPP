@@ -1,14 +1,43 @@
 {
   "users": [
     {
+      "id": 1,
+      "username": null,
+      "puestos": 2,
+      "patente": "1234"
+    },
+    {
+      "id": 2,
+      "username": null,
+      "marca": "",
+      "modelo": "",
+      "color": "",
+      "hora": "",
+      "destino": "",
+      "puestos": 2,
+      "patente": "qwert"
+    },
+    {
       "id": 3,
       "username": null,
-      "marca": "hyundai",
-      "modelo": "sonata",
-      "color": "gris",
-      "hora": "11:11",
-      "destino": "ddsadsa",
-      "patente": "bhwz86"
+      "marca": "",
+      "modelo": "",
+      "color": "",
+      "hora": "",
+      "destino": "",
+      "puestos": 4,
+      "patente": "asdf"
+    },
+    {
+      "id": 4,
+      "username": null,
+      "marca": "",
+      "modelo": "",
+      "color": "",
+      "hora": "",
+      "destino": "",
+      "puestos": 4,
+      "patente": "zxcv"
     }
   ]
 }
