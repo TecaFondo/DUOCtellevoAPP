@@ -32,12 +32,14 @@
         <p>{{post.molor}}</p>
         <p>{{post.hora}}</p>
         <p>{{post.destino}}</p>
-        <ion-button fill="clear" color="dark">
+
+        <ion-button fill="nofill" color="dark" (click)="updatePost(post.id)">
             <ion-icon name="create-outline"></ion-icon>
         </ion-button>
-        <ion-button fill="clear" color="dark" (click)="deletePost(post.id)">
+        <ion-button fill="nofill" color="dark" (click)="deletePost(post.id)">
             <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
+
         <!-- reemplazar body por email-->
     </div>
 
