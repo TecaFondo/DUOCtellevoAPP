@@ -85,8 +85,8 @@ animation.play();
       }
     );
   }
-  updatePost(){
-    this.postServices.updatePost("1",this.post).subscribe( //se entrega id apra realizar el update de los datos.
+  updatePost(postID){
+    this.postServices.updatePost(postID,this.post).subscribe( //se entrega id apra realizar el update de los datos.
       ()=>{
         console.log("Post actualizado.");
         this.getPosts();
@@ -97,8 +97,8 @@ animation.play();
     );
   }
 
-  deletePost(){
-    this.postServices.deletePost("1",this.post).subscribe( //se entrega id para realizar el delete.
+  deletePost(postID){
+    this.postServices.deletePost(postID,this.post).subscribe( //se entrega id para realizar el delete.
       ()=>{
         console.log("Post eliminado.");
         this.getPosts();

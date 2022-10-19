@@ -58,7 +58,7 @@ export class PostServiceService {
   deletePost(id,post):Observable<any>{
       return this.http.delete(this.url+"/"+id,post)
       .pipe(
-        retry(1-2)
+        retry(3)
       );
   }
   //NUEVO PASO 2.2 Uso de Observable

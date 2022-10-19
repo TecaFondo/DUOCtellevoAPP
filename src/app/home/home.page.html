@@ -32,8 +32,12 @@
         <p>{{post.molor}}</p>
         <p>{{post.hora}}</p>
         <p>{{post.destino}}</p>
-        <ion-button>Editar</ion-button>
-        <ion-button (click)="(deletePost(post.id))">Borrar</ion-button>
+        <ion-button fill="clear" color="dark">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="dark" (click)="deletePost(post.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
         <!-- reemplazar body por email-->
     </div>
 
@@ -71,7 +75,7 @@
     </ion-list>
 
 
-    <ion-button shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
+    <ion-button color="danger" shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
 
 
 
