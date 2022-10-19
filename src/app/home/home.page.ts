@@ -96,6 +96,9 @@ animation.play();
       }
     );
   }
+  id(id: any, post: any) {
+    throw new Error('Method not implemented.');
+  }
 
   deletePost(postID){
     this.postServices.deletePost(postID,this.post).subscribe( //se entrega id para realizar el delete.

@@ -18,7 +18,7 @@ export class PostServiceService {
   
   //NUEVO PASO 2.5
   //Para montar servidor local
-  url = 'http://192.168.0.23:3000/users'; //se tiene que colocar la IP de donde provienen los datos (puede ser una de gihub si fuerna necesario <como el año pasasdo>)
+  url = 'http://192.168.1.166:3000/users'; //se tiene que colocar la IP de donde provienen los datos (puede ser una de gihub si fuerna necesario <como el año pasasdo>)
   id= 0;
   //NUEVO PASO 3.2
   httpOptions = {
@@ -56,6 +56,7 @@ export class PostServiceService {
   }
 
   deletePost(id,post):Observable<any>{
+    console.log(post.id);
       return this.http.delete(this.url+"/"+id,post)
       .pipe(
         retry(3)
