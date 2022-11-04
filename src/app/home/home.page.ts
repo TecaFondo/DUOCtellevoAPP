@@ -7,13 +7,35 @@ import { ElementRef } from '@angular/core';
 import { PostServiceService } from '../post-service/services.service';
 import { AlertController } from '@ionic/angular';
 
+import { GoogleMap } from '@capacitor/google-maps';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 
+
 export class HomePage {
+  @ViewChild('map')
+  mapRef: ElementRef<HTMLElement>;
+  newMap: GoogleMap;
+
+  async createMap() {
+    this.newMap = await GoogleMap.create({
+      id: 'my-cool-map',
+      element: this.mapRef.nativeElement,
+      apiKey: "AIzaSyBK04u7awKfO9Bmd1nlRp3YZf4yA8p-kXg",
+      config: {
+        center: {
+          lat: 33.6,
+          lng: -117.9,
+        },
+        zoom: 8,
+      },
+    });
+  }
 
   post:any={
     id:null,

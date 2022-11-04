@@ -20,8 +20,15 @@
             <h3 class="comenzar">Comenzar viaje</h3>
         </ion-card>
 
+        
+
 
     </div>
+    <div>
+        <capacitor-google-map #map></capacitor-google-map>
+        <button (click)="createMap()">Create Map</button>
+    </div>
+    
     <!-- Creamos la llamada a los datos -->
     <div class="post" *ngFor="let post of arrayPosts">
         <h2>{{post.patente}}</h2>
