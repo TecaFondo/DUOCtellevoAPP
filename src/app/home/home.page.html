@@ -20,16 +20,30 @@
             <h3 class="comenzar">Comenzar viaje</h3>
         </ion-card>
 
+        
+
 
     </div>
-    <!-- PASO 13 -->
+    <div>
+        <capacitor-google-map #map></capacitor-google-map>
+        <button (click)="createMap()">Create Map</button>
+    </div>
+    
     <!-- Creamos la llamada a los datos -->
     <div class="post" *ngFor="let post of arrayPosts">
-        <h2>{{post.username}}</h2>
-        <!-- reemplazar title por name si es "users"-->
-        <p>{{post.email}}</p>
-        <ion-button>Editar</ion-button>
-        <!-- reemplazar body por email-->
+        <h2>{{post.patente}}</h2>
+        <p>{{post.marca}}</p>
+        <p>{{post.modelo}}</p>
+        <p>{{post.molor}}</p>
+        <p>{{post.hora}}</p>
+        <p>{{post.destino}}</p>
+        <p>Puestos disponibles: {{post.puestos}}</p>
+        <ion-button fill="nofill" color="dark" (click)="eliminar(post.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="nofill" color="dark" (click)="updatePosts(post.id)">
+            <ion-icon name="person-add-outline"></ion-icon>
+        </ion-button>
     </div>
 
     <ion-list>
@@ -40,36 +54,36 @@
         </ion-item>
         <ion-item>
             <ion-label>Marca:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Marca"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Modelo:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Modelo"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Color:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Color"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Hora de salida:</ion-label>
-            <ion-input type="time"></ion-input>
+            <ion-input [(ngModel)]="Hora" type="time"></ion-input>
 
         </ion-item>
         <ion-item>
             <ion-label>Destino:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="Destino"></ion-input>
 
         </ion-item>
     </ion-list>
 
 
-    <ion-button shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
+    <ion-button color="danger" shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
 
 
 
-    <ion-button shape="round" expand="block" (click)="createPost()">Borrar</ion-button>
+
 
 </ion-content>

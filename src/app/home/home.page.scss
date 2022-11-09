@@ -85,9 +85,17 @@
   
   //EJEMPLO DE DISEÑO
   ion-content{
+    --background: none
     .post{
       border:1px solid gray;
       padding: 1rem;
       margin-top:1rem;
     }
+
+  }
+  capacitor-google-map {
+    z-index: 30;
+    display: inline-block;
+    width: 100vw;
+    height: 400px;
   }
