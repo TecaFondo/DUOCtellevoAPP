@@ -8,6 +8,7 @@ import { PostServiceService } from '../post-service/services.service';
 import { AlertController } from '@ionic/angular';
 
 import { GoogleMap } from '@capacitor/google-maps';
+import { Geolocation, Geoposition, PositionError } from '@awesome-cordova-plugins/geolocation/ngx';
 
 
 @Component({
@@ -17,22 +18,27 @@ import { GoogleMap } from '@capacitor/google-maps';
 })
 
 
+
 export class HomePage {
   @ViewChild('map')
   mapRef: ElementRef<HTMLElement>;
   newMap: GoogleMap;
-
+  lati: number;
+  longi: number;
+  geopos: Geoposition;
+  
   async createMap() {
+    
     this.newMap = await GoogleMap.create({
       id: 'my-cool-map',
       element: this.mapRef.nativeElement,
       apiKey: "AIzaSyBK04u7awKfO9Bmd1nlRp3YZf4yA8p-kXg",
       config: {
         center: {
-          lat: 33.6,
-          lng: -117.9,
+          lat: this.geopos.coords.latitude,
+          lng:  this.geopos.coords.longitude,
         },
-        zoom: 8,
+        zoom: 18,
       },
     });
   }
@@ -58,11 +64,26 @@ export class HomePage {
   forma: any;
   handlerMessage = '';
   roleMessage = '';
-constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController) {
+constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController,private geolocation: Geolocation) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
 }
 
 ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
+  this.geolocation.getCurrentPosition().then((resp) => {
+    this.lati = resp.coords.latitude
+    this.longi = resp.coords.longitude
+   }).catch((error) => {
+     console.log('Error getting location', error);
+   });
+  let watch = this.geolocation.watchPosition().subscribe(position => {
+    if ((position as Geoposition).coords != undefined) {
+      var geoposition = (position as Geoposition);
+      this.geopos = geoposition;
+      console.log(this.geopos)
+    } else { 
+      var positionError = (position as PositionError);
+    }
+  });
   
   const animation = createAnimation()
   .addElement(this.Logo.nativeElement)
