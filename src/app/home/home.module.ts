@@ -14,9 +14,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage],
-  providers: [
-    Geolocation
-  ]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
