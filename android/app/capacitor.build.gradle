@@ -14,8 +14,6 @@ dependencies {
     implementation project(':capacitor-haptics')
     implementation project(':capacitor-keyboard')
     implementation project(':capacitor-status-bar')
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
-
 
 }
 
