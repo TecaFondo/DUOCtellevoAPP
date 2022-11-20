@@ -8,6 +8,7 @@ import { PostServiceService } from '../post-service/services.service';
 import { AlertController } from '@ionic/angular';
 
 import { GoogleMap } from '@capacitor/google-maps';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class HomePage {
   @ViewChild('map')
   mapRef: ElementRef<HTMLElement>;
   newMap: GoogleMap;
+
+  
 
   async createMap() {
     this.newMap = await GoogleMap.create({
@@ -47,6 +50,7 @@ export class HomePage {
     destino:null,
     puestos:4,
   };
+  
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
   Patente: any;
@@ -58,11 +62,21 @@ export class HomePage {
   forma: any;
   handlerMessage = '';
   roleMessage = '';
-constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController) {
+constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController,private geolocation: Geolocation) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
 }
 
+
+
 ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
+
+  const printCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+  
+    console.log('Current position:', coordinates);
+  };
+
+  printCurrentPosition();
   
   const animation = createAnimation()
   .addElement(this.Logo.nativeElement)
