@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Crea tu viaje</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <div class="contenido">
+        <div #Logo><img class="logoLog" src="../assets/images/logo.png" /></div>
+
+
+        <!-- Creamos la llamada a los datos -->
+        <div class="post" *ngFor="let post of arrayPosts">
+            <h2>{{post.patente}}</h2>
+            <p>{{post.marca}}</p>
+            <p>{{post.modelo}}</p>
+            <p>{{post.molor}}</p>
+            <p>{{post.hora}}</p>
+            <p>{{post.destino}}</p>
+            <p>Puestos disponibles: {{post.puestos}}</p>
+            <ion-button fill="nofill" color="dark" (click)="eliminar(post.id)">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="nofill" color="dark" (click)="updatePosts(post.id)">
+                <ion-icon name="person-add-outline"></ion-icon>
+            </ion-button>
+        </div>
+
+        <ion-list>
+            <ion-item>
+                <ion-label>Patente:</ion-label>
+                <ion-input [(ngModel)]="Patente"></ion-input>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>Marca:</ion-label>
+                <ion-input [(ngModel)]="Marca"></ion-input>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>Modelo:</ion-label>
+                <ion-input [(ngModel)]="Modelo"></ion-input>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>Color:</ion-label>
+                <ion-input [(ngModel)]="Color"></ion-input>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>Hora de salida:</ion-label>
+                <ion-input [(ngModel)]="Hora" type="time"></ion-input>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>Destino:</ion-label>
+                <ion-input [(ngModel)]="Destino"></ion-input>
+
+            </ion-item>
+        </ion-list>
+
+
+        <ion-button color="danger" shape="round" expand="block" (click)="onSubmit()">Guardar</ion-button>
+
+    </div>
+
+</ion-content>

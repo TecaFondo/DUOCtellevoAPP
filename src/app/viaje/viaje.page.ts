@@ -1,5 +1,4 @@
-
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { createAnimation } from "@ionic/core";
 import { ElementRef } from '@angular/core';
@@ -9,15 +8,31 @@ import { AlertController } from '@ionic/angular';
 
 import { GoogleMap } from '@capacitor/google-maps';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-viaje',
+  templateUrl: './viaje.page.html',
+  styleUrls: ['./viaje.page.scss'],
 })
+export class ViajePage {
 
+  @ViewChild('map')
+  mapRef: ElementRef<HTMLElement>;
+  newMap: GoogleMap;
 
-export class HomePage {
+  async createMap() {
+    this.newMap = await GoogleMap.create({
+      id: 'my-cool-map',
+      element: this.mapRef.nativeElement,
+      apiKey: "AIzaSyBK04u7awKfO9Bmd1nlRp3YZf4yA8p-kXg",
+      config: {
+        center: {
+          lat: 33.6,
+          lng: -117.9,
+        },
+        zoom: 8,
+      },
+    });
+  }
 
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
@@ -50,6 +65,5 @@ ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
 animation.play();
 
 }
-  
 
 }
