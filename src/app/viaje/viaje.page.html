@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Viajar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="contenido">
+        <div #Logo><img class="logoLog" src="../assets/images/logo.png" /></div>
+
+        <div id="mapa">
+            <capacitor-google-map #map></capacitor-google-map>
+            <button (click)="createMap()">Create Map</button>
+        </div>
+
+    </div>
+
+</ion-content>
