@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ViajePageRoutingModule } from './viaje-routing.module';
 
 import { ViajePage } from './viaje.page';
+import { GoogleMap } from '@capacitor/google-maps';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViajePageRoutingModule
+    ViajePageRoutingModule,
+    GoogleMap
   ],
   declarations: [ViajePage]
 })

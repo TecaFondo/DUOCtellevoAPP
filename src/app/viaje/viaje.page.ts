@@ -8,32 +8,42 @@ import { AlertController } from '@ionic/angular';
 
 import { GoogleMap } from '@capacitor/google-maps';
 
+
+
 @Component({
   selector: 'app-viaje',
   templateUrl: './viaje.page.html',
   styleUrls: ['./viaje.page.scss'],
 })
 export class ViajePage {
+  [x: string]: any;
 
   @ViewChild('map')
   mapRef: ElementRef<HTMLElement>;
-  newMap: GoogleMap;
+  //newMap: GoogleMap;
 
-  async createMap() {
-    this.newMap = await GoogleMap.create({
+  async createMap(){
+    const newMap = await GoogleMap.create({
       id: 'my-cool-map',
       element: this.mapRef.nativeElement,
       apiKey: "AIzaSyBK04u7awKfO9Bmd1nlRp3YZf4yA8p-kXg",
       config: {
         center: {
-          lat: 33.6,
-          lng: -117.9,
+          lat: -33.033532,
+          lng:  -71.533163,
         },
-        zoom: 8,
-      },
+        zoom: 15,
+      }, 
+    });
+    newMap.addMarker({
+      coordinate: {
+        lat: -33.033532,
+          lng:  -71.533163,
+      }
     });
   }
-
+    
+  
   @ViewChild("Logo") Logo:ElementRef; //se genera un hijo en el cual correr animación de elemento
   usuario: any; 
   Patente: any;
@@ -45,12 +55,13 @@ export class ViajePage {
   forma: any;
   handlerMessage = '';
   roleMessage = '';
+
 constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController) {
   this.usuario = this.route.snapshot.paramMap.get('nombre')
 }
 
 ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
-  
+  this.createMap();
   const animation = createAnimation()
   .addElement(this.Logo.nativeElement)
   .easing("ease-in-out")
@@ -63,7 +74,7 @@ ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
   ]);
 
 animation.play();
-
 }
+
 
 }
