@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ViajePageRoutingModule } from './viaje-routing.module';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { ViajePage } from './viaje.page';
 import { GoogleMap } from '@capacitor/google-maps';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 @NgModule({
   imports: [
@@ -15,8 +17,10 @@ import { GoogleMap } from '@capacitor/google-maps';
     FormsModule,
     IonicModule,
     ViajePageRoutingModule,
-    GoogleMap
+    GoogleMap,
+    ViajePageRoutingModule
   ],
-  declarations: [ViajePage]
+  declarations: [ViajePage],
 })
-export class ViajePageModule {}
+export class ViajePageModule {
+  }

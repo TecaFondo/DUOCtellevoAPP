@@ -5,15 +5,27 @@
 </ion-header>
 
 <ion-content>
+    <div class="post" *ngFor="let post of arrayPosts">
+        <h2>{{post.patente}}</h2>
+        <p>{{post.marca}}</p>
+        <p>{{post.modelo}}</p>
+        <p>{{post.molor}}</p>
+        <p>{{post.hora}}</p>
+        <p>{{post.destino}}</p>
+        <p>Puestos disponibles: {{post.puestos}}</p>
+        <ion-button fill="nofill" color="dark" (click)="eliminar(post.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="nofill" color="dark" (click)="updatePosts(post.id)">
+            <ion-icon name="person-add-outline"></ion-icon>
+        </ion-button>
+    </div>
 
     <div class="contenido">
+        
         <div #Logo><img class="logoLog" src="../assets/images/logo.png" /></div>
         <div id="mapa">
             <capacitor-google-map #map></capacitor-google-map>
         </div>
-        
-
     </div>
-    
-
 </ion-content>
