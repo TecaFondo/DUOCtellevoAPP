@@ -31,10 +31,8 @@ const routes: Routes = [
     path: 'conductor',
     loadChildren: () => import('./conductor/conductor.module').then( m => m.ConductorPageModule)
   },
+ 
   {
-    path: 'viaje',
-    loadChildren: () => import('./viaje/viaje.module').then( m => m.ViajePageModule)
-  },  {
     path: 'viajes',
     loadChildren: () => import('./viajes/viajes.module').then( m => m.ViajesPageModule)
   },
