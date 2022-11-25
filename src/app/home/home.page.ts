@@ -47,7 +47,7 @@ ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
     { offset: 1, transform: "scale(1.5)", opacity: "0.5" }
   ]);
 
-animation.play();
+
 
 }
   
