@@ -1,12 +1,12 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ViajePage } from './viaje.page';
+import { ViajesPage } from './viajes.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViajePage
+    component: ViajesPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ViajePageRoutingModule {}
+export class ViajesPageRoutingModule {}

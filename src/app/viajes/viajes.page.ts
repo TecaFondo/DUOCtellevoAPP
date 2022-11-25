@@ -1,4 +1,6 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { createAnimation } from "@ionic/core";
 import { ElementRef } from '@angular/core';
@@ -8,15 +10,12 @@ import { AlertController } from '@ionic/angular';
 
 import { GoogleMap} from '@capacitor/google-maps';
 
-
-
 @Component({
-  selector: 'app-viaje',
-  templateUrl: './viaje.page.html',
-  styleUrls: ['./viaje.page.scss'],
+  selector: 'app-viajes',
+  templateUrl: './viajes.page.html',
+  styleUrls: ['./viajes.page.scss'],
 })
-export class ViajePage {
-  [x: string]: any;
+export class ViajesPage implements OnInit {
 
   @ViewChild('map')
   mapRef: ElementRef<HTMLElement>;
@@ -42,9 +41,7 @@ export class ViajePage {
       }
     });
   }
-    
-  
-  post2:any={
+  post:any={
     id:null,
     username:null,
     marca:null,
@@ -66,15 +63,22 @@ export class ViajePage {
   forma: any;
   handlerMessage = '';
   roleMessage = '';
-  
   constructor(private route: ActivatedRoute, public postServices:PostServiceService,private alertController: AlertController) {
     this.usuario = this.route.snapshot.paramMap.get('nombre')
   }
-
-  arrayPosts2 : any; //Se genera arreglo para guardar datos
-
-  ionViewDidEnter(){ //Se llama a método de obtencion de datos al entrar a la vista
+  arrayPosts : any; //Se genera arreglo para guardar datos
+  ngOnInit() {
     this.getPosts();
+    this.createMap();
+  }
+
+  
+
+  
+
+  ionViewWillEnter(){ //Se llama a método de obtencion de datos al entrar a la vista
+    this.getPosts();
+    this.createMap();
   }
 
   //funciones simplemente llaman a funciones en post-service y muestran salida por consola con finalidad de debug.
@@ -88,15 +92,15 @@ export class ViajePage {
   getPost(id){
     this.postServices.getPost(id)
     .then(data =>{
-      this.post2 = data;
-      console.log(this.post2.patente);
+      this.post = data;
+      console.log(this.post.patente);
     });
   }  
 
 
   createPost(){
-    this.post2.puestos=4;
-    this.postServices.createPost(this.post2).subscribe(
+    this.post.puestos=4;
+    this.postServices.createPost(this.post).subscribe(
       ()=>{
         console.log("Post creado.");
         this.getPosts();
@@ -120,12 +124,12 @@ export class ViajePage {
   updatePosts(postID){ //Se actualiza post deseado (en este caso estamos eliminando un puesto disponible)
     console.log(postID);  
     this.getPost(postID);
-      if(this.post2.puestos<1){
+      if(this.post.puestos<1){
         this.noPuestos();
         this.getPosts();
       }
       else{
-        this.post2.puestos-=1;
+        this.post.puestos-=1;
         this.postServices.updatePost(postID,this.post).subscribe( //se entrega id apra realizar el update de los datos.
       ()=>{
         console.log("Post actualizado.");
@@ -139,7 +143,7 @@ export class ViajePage {
     }
 
   deletePost(postID){
-    this.postServices.deletePost(postID,this.post2).subscribe( //se entrega id para realizar el delete.
+    this.postServices.deletePost(postID,this.post).subscribe( //se entrega id para realizar el delete.
       ()=>{
         console.log("Post eliminado.");
         this.getPosts();
@@ -178,12 +182,12 @@ export class ViajePage {
   }
   onSubmit(JSONForm){
     //se ingresan datos y se guardan en tipo de dato post
-    this.post2.patente=this.Patente;
-    this.post2.marca=this.Marca;
-    this.post2.modelo=this.Modelo;
-    this.post2.color=this.Color;
-    this.post2.hora=this.Hora;
-    this.post2.destino=this.Destino;
+    this.post.patente=this.Patente;
+    this.post.marca=this.Marca;
+    this.post.modelo=this.Modelo;
+    this.post.color=this.Color;
+    this.post.hora=this.Hora;
+    this.post.destino=this.Destino;
     // se procede a guardar elemento post dentro de archivo JSON
     this.createPost();
     //Se vacían los campos de entrada
@@ -196,21 +200,11 @@ export class ViajePage {
   }
 
 
-ngAfterViewInit(){ //Al visualizar elemento se da comienzo a animación
-  this.createMap();
-  const animation = createAnimation()
-  .addElement(this.Logo.nativeElement)
-  .easing("ease-in-out")
-  .duration(1000)
-  .direction("alternate")
-  .iterations(Infinity)
-  .keyframes([
-    { offset: 0, transform: "scale(1)", opacity: "1" },
-    { offset: 1, transform: "scale(1.5)", opacity: "0.5" }
-  ]);
-
-animation.play();
 }
 
+export class ConductorPage {
 
+  
+  
+ 
 }

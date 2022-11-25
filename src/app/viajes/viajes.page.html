@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Crea tu viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="contenido">
+      <div #Logo><img class="logoLog" src="../assets/images/logo.png" /></div>
+      <div><capacitor-google-map #map></capacitor-google-map></div>
+      
+      <!-- Creamos la llamada a los datos -->
+      <div class="post" *ngFor="let post of arrayPosts">
+          <h2>{{post.patente}}</h2>
+          <p>{{post.marca}}</p>
+          <p>{{post.modelo}}</p>
+          <p>{{post.molor}}</p>
+          <p>{{post.hora}}</p>
+          <p>{{post.destino}}</p>
+          <p>Puestos disponibles: {{post.puestos}}</p>
+          
+          <ion-button fill="nofill" color="dark" (click)="updatePosts(post.id)">
+              <ion-icon name="person-add-outline"></ion-icon>
+          </ion-button>
+      </div>
+
+      
+
+
+
+  </div>
+
+</ion-content>
