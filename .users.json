@@ -3,13 +3,12 @@
     {
       "id": 1,
       "username": null,
-      "marca": "Hyundia",
-      "modelo": "Elantra",
-      "color": "Gris",
-      "hora": "11:11",
-      "destino": "Chuchunco",
-      "puestos": 4,
-      "patente": "BRXH52"
+      "marca": null,
+      "modelo": null,
+      "color": null,
+      "hora": null,
+      "destino": null,
+      "puestos": 3
     },
     {
       "id": 2,
