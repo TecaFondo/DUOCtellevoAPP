@@ -5,7 +5,6 @@ import { ElementRef } from '@angular/core';
 
 import { PostServiceService } from '../post-service/services.service';
 import { AlertController } from '@ionic/angular';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 
 import { GoogleMap} from '@capacitor/google-maps';
 
@@ -45,7 +44,7 @@ export class ViajePage {
   }
     
   
-  post:any={
+  post2:any={
     id:null,
     username:null,
     marca:null,
@@ -72,9 +71,9 @@ export class ViajePage {
     this.usuario = this.route.snapshot.paramMap.get('nombre')
   }
 
-  arrayPosts : any; //Se genera arreglo para guardar datos
+  arrayPosts2 : any; //Se genera arreglo para guardar datos
 
-  ionViewWillEnter(){ //Se llama a método de obtencion de datos al entrar a la vista
+  ionViewDidEnter(){ //Se llama a método de obtencion de datos al entrar a la vista
     this.getPosts();
   }
 
@@ -89,15 +88,15 @@ export class ViajePage {
   getPost(id){
     this.postServices.getPost(id)
     .then(data =>{
-      this.post = data;
-      console.log(this.post.patente);
+      this.post2 = data;
+      console.log(this.post2.patente);
     });
   }  
 
 
   createPost(){
-    this.post.puestos=4;
-    this.postServices.createPost(this.post).subscribe(
+    this.post2.puestos=4;
+    this.postServices.createPost(this.post2).subscribe(
       ()=>{
         console.log("Post creado.");
         this.getPosts();
@@ -121,12 +120,12 @@ export class ViajePage {
   updatePosts(postID){ //Se actualiza post deseado (en este caso estamos eliminando un puesto disponible)
     console.log(postID);  
     this.getPost(postID);
-      if(this.post.puestos<1){
+      if(this.post2.puestos<1){
         this.noPuestos();
         this.getPosts();
       }
       else{
-        this.post.puestos-=1;
+        this.post2.puestos-=1;
         this.postServices.updatePost(postID,this.post).subscribe( //se entrega id apra realizar el update de los datos.
       ()=>{
         console.log("Post actualizado.");
@@ -140,7 +139,7 @@ export class ViajePage {
     }
 
   deletePost(postID){
-    this.postServices.deletePost(postID,this.post).subscribe( //se entrega id para realizar el delete.
+    this.postServices.deletePost(postID,this.post2).subscribe( //se entrega id para realizar el delete.
       ()=>{
         console.log("Post eliminado.");
         this.getPosts();
@@ -179,12 +178,12 @@ export class ViajePage {
   }
   onSubmit(JSONForm){
     //se ingresan datos y se guardan en tipo de dato post
-    this.post.patente=this.Patente;
-    this.post.marca=this.Marca;
-    this.post.modelo=this.Modelo;
-    this.post.color=this.Color;
-    this.post.hora=this.Hora;
-    this.post.destino=this.Destino;
+    this.post2.patente=this.Patente;
+    this.post2.marca=this.Marca;
+    this.post2.modelo=this.Modelo;
+    this.post2.color=this.Color;
+    this.post2.hora=this.Hora;
+    this.post2.destino=this.Destino;
     // se procede a guardar elemento post dentro de archivo JSON
     this.createPost();
     //Se vacían los campos de entrada

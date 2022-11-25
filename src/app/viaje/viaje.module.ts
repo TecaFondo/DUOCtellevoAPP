@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ViajePageRoutingModule } from './viaje-routing.module';
-import { Geolocation } from '@ionic-native/geolocation';
 
 import { ViajePage } from './viaje.page';
 import { GoogleMap } from '@capacitor/google-maps';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { PostServiceService } from '../post-service/services.service';
 
 @NgModule({
   imports: [
@@ -18,9 +17,11 @@ import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@aw
     IonicModule,
     ViajePageRoutingModule,
     GoogleMap,
-    ViajePageRoutingModule
+    ViajePageRoutingModule,
+    PostServiceService
   ],
   declarations: [ViajePage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class ViajePageModule {
   }
